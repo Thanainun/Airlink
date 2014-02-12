@@ -1,0 +1,22 @@
+Linux peepa 2.6.32.44+drm33.19-l7-imq #1 SMP Thu Oct 20 09:59:06 ICT 2011 x86_64 GNU/Linux
+Ubuntu 10.04.3 LTS
+
+Welcome to Ubuntu!
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Thu Feb 13 03:45:56 ICT 2014
+
+  System load:  0.5                 Processes:           105
+  Usage of /:   16.0% of 141.17GB   Users logged in:     0
+  Memory usage: 34%                 IP address for eth0: 192.168.1.100
+  Swap usage:   0%                  IP address for tun0: 10.0.0.1
+  Temperature:  34 C
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+
+95 packages can be updated.
+66 updates are security updates.
+
+New release 'precise' available.
+Run 'do-release-upgrade' to upgrade to it.
+

@@ -1,0 +1,37 @@
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+
+
+#################################################################
+################## Edit Crontab By : Mr.Karun ###################
+#################################################################
+59 23 * * * root /etc/script/changeaccess.sh
+*/59 * * * * root /etc/script/clearram.sh
+*/39 * * * * root /etc/script/nettime.sh
+29 3 * * 1 root /etc/script/restart.sh
+#19 3 1 * * root /usr/local/bin/hotspot/mysar/bin/mysar-importer.php
+49 3 1 * * root /etc/script/clearsquid.sh
+0 8 * * * /sbin/shutdown -r now
+########## Block Facebook Mon - Fri : 8.00 - 12.00 AM. ##########
+#00 8 * * 1-5 root /etc/script/faceblock.iptables
+#00 12 * * 1-5 root /etc/script/facenoblock.iptables
+########################### End Edit ############################
+#################################################################
+0 8 * * * root reboot
+0 8 * * * root reboot
+0 8 * * * root reboot
+0 8 * * * root reboot
+0 8 * * * root reboot

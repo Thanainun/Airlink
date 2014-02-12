@@ -1,0 +1,22 @@
+# Qt qdbus completion
+
+have qdbus &&
+_qdbus()
+{
+    local cur compstr
+
+    COMPREPLY=()
+    cur=`_get_cword`
+    [ -n "$cur" ] && unset COMP_WORDS[${#COMP_WORDS[@]}-1]
+    COMPREPLY=( $( compgen -W '$( command ${COMP_WORDS[@]} | sed s/\(.*\)// )' \
+        -- "$cur" ) )
+} &&
+complete -F _qdbus qdbus
+
+# Local variables:
+# mode: shell-script
+# sh-basic-offset: 4
+# sh-indent-comment: t
+# indent-tabs-mode: nil
+# End:
+# ex: ts=4 sw=4 et filetype=sh

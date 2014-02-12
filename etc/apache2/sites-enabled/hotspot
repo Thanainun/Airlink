@@ -1,0 +1,38 @@
+NameVirtualHost *:443
+<VirtualHost *:443>
+        ServerAdmin webmaster@domain.org
+        DocumentRoot "/opt/hotspot"
+        <Directory "/opt/hotspot/">
+                Options FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        Alias "/dialupadmin/" "/usr/share/freeradius-dialupadmin/htdocs/"
+        <Directory "/usr/share/freeradius-dialupadmin/htdocs/">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ScriptAlias /cgi-bin/ /opt/hotspot/cgi-bin/
+        <Directory "/opt/hotspot/cgi-bin/">
+                AllowOverride None
+                Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        ErrorLog /var/log/apache2/hotspot-error.log
+
+        LogLevel warn
+
+        CustomLog /var/log/apache2/hotspot-access.log combined
+
+        ServerSignature On
+        SSLEngine on
+        SSLCertificateFile /etc/apache2/ssl/apache.pem
+</VirtualHost>
+
