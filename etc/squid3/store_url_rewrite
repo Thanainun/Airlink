@@ -1,0 +1,16 @@
+#!/usr/bin/perl 
+
+$|=1;
+ while (<>) {
+    @X = split;
+        $url = $X[0];
+        $url =~ s@^http://(.*?)/get_video\?(.*)video_id=(.*?)&.*@squid://videos.youtube.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/get_video\?(.*)video_id=(.*?)$@squid://videos.youtube.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/videodownload\?(.*)docid=(.*?)$@squid://videos.google.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/videodownload\?(.*)docid=(.*?)&.*@squid://videos.google.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/albums\?&.*@squid://images.photobucket.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/albums\?$@squid://images.photobucket.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/albums\?&.*@squid://videos.photobucket.INTERNAL/ID=$3@;
+        $url =~ s@^http://(.*?)/albums\?$@squid://videos.photobucket.INTERNAL/ID=$3@;
+      print "$url\n";
+ }

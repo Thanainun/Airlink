@@ -1,0 +1,7 @@
+#!/bin/bash
+##
+. /etc/chilli/fw_reload.sh
+##
+echo " ------------------------------- "
+echo "| FIREWALL NoBlock Faccebook OK |"
+echo " ------------------------------- "

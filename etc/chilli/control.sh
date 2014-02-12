@@ -1,0 +1,19 @@
+#!/bin/bash
+# 
+
+
+D0OWNLINK="350"
+
+UPLINK="50"
+
+WEBLOADLINK="100"
+
+BIT="BITON"
+
+QOS="QOSCONTROLLON"
+
+SQUID="SQUIDON"
+
+#Do not Edit
+
+RULE="PREROUTING"

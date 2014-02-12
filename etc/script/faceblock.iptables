@@ -1,0 +1,20 @@
+#!/bin/bash
+##
+. /etc/chilli/fw_reload.sh
+
+#for MAC in `cat /etc/face_allow_mac`; do
+#  iptables -A FORWARD -i tun0 -o eth0 -m mac --mac-source $MAC -j ACCEPT
+#done
+##
+for FIP in `cat /etc/script/face_cdir.blocked`; do
+       $IPTABLES -A INPUT -p tcp -s $FIP --dport 443 -j DROP
+	$IPTABLES -A OUTPUT -p tcp -d $FIP --dport 443 -j DROP
+done
+##
+$IPTABLES -A FORWARD -m string --algo bm --string "facebook" -j DROP
+$IPTABLES -A FORWARD -m string --string "facebook" --algo kmp --to 80 -j DROP
+$IPTABLES -A FORWARD -m string --string "facebook" --algo kmp --to 3128 -j DROP
+##
+echo " ------------------------------ "
+echo "| FIREWALL Block Faccebook OK |"
+echo " ------------------------------ "
